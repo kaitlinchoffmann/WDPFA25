@@ -1,6 +1,6 @@
 # Class Code Repository
 
-Welcome! This repository contains code examples and assignments from our WDP FA25 course.  
+Welcome! This repository contains code from our WDP FA25 course.  
 
 ## How to Find the Code
 - Click on the **commit** button at the top right above.  
