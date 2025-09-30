@@ -1,0 +1,40 @@
+body {
+  background-color: rgb(252, 190, 136);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+span {
+  color: hotpink;
+  font-style: italic;
+}
+
+.highlight {
+  color: green;
+}
+
+.button {
+  text-decoration: none;
+  border: 2px solid red;
+  color: maroon;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  box-shadow: 3px 3px 15px rgb(172, 114, 63), -3px -3px 15px rgb(172, 114, 63);
+}
+
+p {
+  width: 400px;
+  display: inline-block;
+}
+
+img {
+  display: block;
+  margin: 50px auto;
+  width: 300px;
+}
