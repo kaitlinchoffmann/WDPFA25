@@ -15,6 +15,12 @@ function register(e) {
       email: document.getElementById("email").value,
       password: pswd
     }
+
+    let userJSON = JSON.stringify(user) 
+    console.log(userJSON)
+    console.log(JSON.parse(userJSON))
+    
+
     h1.innerHTML = `Welcome ${user.username}!`
     document.getElementById("username").value=""
     document.getElementById("email").value=""
