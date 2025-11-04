@@ -7,6 +7,7 @@ function register(e) {
 
   pswd = document.getElementById("pswd").value
   confirmPswd = document.getElementById("confirmPswd").value
+  let h1 = document.getElementById("welcome")
 
   if(validPassword(pswd, confirmPswd)) {
     const user = {
@@ -14,12 +15,15 @@ function register(e) {
       email: document.getElementById("email").value,
       password: pswd
     }
-
-    console.log(user)
-  } else {
-    console.log("Passwords must match!!")
+    h1.innerHTML = `Welcome ${user.username}!`
+    document.getElementById("username").value=""
+    document.getElementById("email").value=""
+    
+  } else {    
+    h1.innerHTML = `Passwords must match!!`
   }
-
+  document.getElementById("pswd").value=""
+  document.getElementById("confirmPswd").value=""
 }
 
 function validPassword(password, confimPassword) {
