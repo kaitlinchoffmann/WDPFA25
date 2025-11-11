@@ -1,7 +1,11 @@
-// id = registerForm
+// Register Form
+// 1. Store form in a variable
 let registerForm = document.getElementById("registerForm")
+
+// 2. Add event listener
 if(registerForm) registerForm.addEventListener('submit', register)
 
+// 3. Create applicable function
 function register(e) {
   e.preventDefault()
 
