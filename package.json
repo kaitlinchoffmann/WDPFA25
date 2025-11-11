@@ -1,0 +1,23 @@
+{
+  "name": "wdpfa25",
+  "version": "1.0.0",
+  "description": "Recipe Application for WDP Fall 2025 class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaitlinchoffmann/WDPFA25.git"
+  },
+  "author": "Kaitlin Hoffmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaitlinchoffmann/WDPFA25/issues"
+  },
+  "homepage": "https://github.com/kaitlinchoffmann/WDPFA25#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}
