@@ -19,7 +19,7 @@ app.use("/users", userRoutes)
 /* I have a route called getRecipes under recipeRoutes below.
    What is the fetch url to call it? It is a get request.
 */
-app.use("/recipes", recipeRoutes)
+// app.use("/recipes", recipeRoutes)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!!`))
