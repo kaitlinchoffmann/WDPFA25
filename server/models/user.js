@@ -28,10 +28,26 @@ async function getAllUsers() {
 /* Eventually will add all CRUD operations:
 Create: Register function
 Read: Login function
+*/
+
+// let user = {
+//   username: "cathy123",
+//   password: "icecream"
+// }
+async function login(user) {
+  let sql = `
+    SELECT * FROM User
+    WHERE Username="${user.username}"
+  `
+  let cuser = await con.query(sql)
+  return cuser[0]
+}
+
+/*
 Update: Update password/name function
 Delete: Delete user account function*/
 
 /* We need to add each function we create to "module.exports", or 
    else cannot access the functions in our route files*/
 // 5. export all functions so accessible by corresponding route file
-module.exports = { getAllUsers }
+module.exports = { getAllUsers, login }
