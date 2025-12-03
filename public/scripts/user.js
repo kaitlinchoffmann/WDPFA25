@@ -1,3 +1,30 @@
+import { fetchData } from "./main.js"
+
+let loginForm = document.getElementById("loginForm")
+if(loginForm) loginForm.addEventListener('submit', login)
+
+function login(e) {
+  e.preventDefault()
+
+  const user = {
+    username: document.getElementById("username").value,
+    password: document.getElementById("pswd").value
+  }
+
+  fetchData("/users/login", user, "POST")
+  .then(data => {
+    if(!data.message) {
+      setCurrentUser(data)
+      window.location.href = "index.html"
+    }
+  })
+  .catch(err => {
+    let errorSection = document.getElementById("error")
+    errorSection.innerText = err.message
+  })
+  
+}  
+
 // Register Form
 // 1. Store form in a variable
 let registerForm = document.getElementById("registerForm")
@@ -20,11 +47,6 @@ function register(e) {
       password: pswd
     }
 
-    let userJSON = JSON.stringify(user) 
-    console.log(userJSON)
-    console.log(JSON.parse(userJSON))
-    
-
     h1.innerHTML = `Welcome ${user.username}!`
     document.getElementById("username").value=""
     document.getElementById("email").value=""
@@ -40,7 +62,7 @@ function validPassword(password, confimPassword) {
   return password === confimPassword;
 }
 
-/*
+
 // local storage functions
 export function setCurrentUser(user) {
   localStorage.setItem('user', JSON.stringify(user))
@@ -57,4 +79,3 @@ export function removeCurrentUser() {
   localStorage.removeItem('user')
   window.location.href = "index.html"
 }
-*/

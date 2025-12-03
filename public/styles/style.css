@@ -197,6 +197,10 @@ footer {
   border-top: 1px solid #eaeaea;
 }
 
+#error {
+  color: rgb(185, 11, 11);
+}
+
 /* Responsive tweaks */
 @media (max-width: 600px) {
   nav ul {

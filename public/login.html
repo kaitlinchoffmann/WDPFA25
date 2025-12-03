@@ -9,13 +9,7 @@
 <body>
   <header>
     <h1>Best Recipes</h1>
-    <nav>
-      <ul>
-        <li><a href="./index.html">HOME</a></li>
-        <li><a href="./login.html">LOGIN</a></li>
-        <li><a href="./register.html">REGISTER</a></li>
-      </ul>
-    </nav>
+    <nav></nav>
   </header>
 
   <main>
@@ -23,6 +17,7 @@
     <p>Don't have an account? <a href="./register.html">Register here!</a></p>
     
     <form id="loginForm">
+      <p id="error"></p>
       <label for="username">Username</label>
       <input type="text" id="username">
       <label for="pswd">Password</label>
@@ -35,7 +30,7 @@
     </footer>
   </main>
   
-  <script src="./scripts/main.js"></script>
-  <script src="./scripts/user.js"></script>
+  <script type="module" src="./scripts/main.js"></script>
+  <script type="module" src="./scripts/user.js"></script>
 </body>
 </html>
