@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt")
+
 // 1. import con to access database
 const con = require("./db_connect")
 // 2. create function that creates entity table if doesn't exist already
@@ -37,16 +39,18 @@ Read: Login function
 async function userExists(user) {
   let sql = `
       SELECT * FROM User
-      WHERE Username="${user.username}"
+      WHERE Username=?
   `
-  let cuser = await con.query(sql)
+  let cuser = await con.query(sql, [user.username])
   return cuser[0]
 }
 
 async function login(user) {
   let cuser = await userExists(user)
   if(!cuser) throw Error("Username does not exist!")
-  if(user.password !== cuser.Password) throw Error("Password incorrect!")
+
+  let match = await bcrypt.compare(user.password, cuser.Password)
+  if (!match) throw Error("Password incorrect!")
 
   return cuser
 }
@@ -56,11 +60,13 @@ async function register(user) {
   let cuser = await userExists(user)
   if(cuser) throw Error("Username already in use!")
   
+  let hashedPassword = await bcrypt.hash(user.password, 10)
+
   let sql = `
-    INSERT INTO user(Username, Password, Email)
-    VALUES("${user.username}", "${user.password}", "${user.email}")
+    INSERT INTO User(Username, Password, Email)
+    VALUES(?, ?, ?)
   `  
-  await con.query(sql)
+  await con.query(sql, [user.username, hashedPassword, user.email])
 
   return await userExists(user)
 }

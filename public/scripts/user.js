@@ -36,8 +36,8 @@ if(registerForm) registerForm.addEventListener('submit', register)
 function register(e) {
   e.preventDefault()
 
-  pswd = document.getElementById("pswd").value
-  confirmPswd = document.getElementById("confirmPswd").value
+  let pswd = document.getElementById("pswd").value
+  let confirmPswd = document.getElementById("confirmPswd").value
   let h1 = document.getElementById("welcome")
 
   if(validPassword(pswd, confirmPswd)) {
@@ -47,9 +47,17 @@ function register(e) {
       password: pswd
     }
 
-    h1.innerHTML = `Welcome ${user.username}!`
-    document.getElementById("username").value=""
-    document.getElementById("email").value=""
+    fetchData("/users/register", user, "POST")
+      .then(data => {
+        if(!data.message) {
+          setCurrentUser(data)
+          window.location.href = "index.html"
+        }
+      })
+      .catch(err => {
+        let errorSection = document.getElementById("error")
+        errorSection.innerText = err.message
+      })
     
   } else {    
     h1.innerHTML = `Passwords must match!!`
